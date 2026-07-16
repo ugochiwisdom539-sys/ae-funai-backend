@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AE-FUNAI Student Registration</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body class="center-body">
+<div class="container">
+    <header class="header">
+        <h1>AE-FUNAI Student Verification</h1>
+        <p class="subtitle">Secure your academic journey.</p>
+    </header>
+
+    <form id="registrationForm" class="form-grid">
+        <div class="form-group matric-no">
+            <label for="matricNo">Matric Number</label>
+            <input type="text" id="matricNo" name="matricNo" required placeholder="e.g., 2022/SC/1234567">
+        </div>
+        <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" name="fullName" required placeholder="e.g., John Doe">
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="e.g., john.doe@example.com">
+        </div>
+        <div class="form-group">
+            <label for="department">Department</label>
+            <input type="text" id="department" name="department" required placeholder="e.g., Computer Science">
+        </div>
+    </form>
+
+    <div class="fingerprint-area">
+        <p>Thumbprint Capture</p>
+        <div id="fingerprintIcon" class="fingerprint-icon">&#128376;</div> <!-- Fingerprint icon emoji -->
+        <button id="scanFingerprintBtn">Scan Thumbprint</button>
+        <p id="fingerprintStatus">Ready to scan...</p>
+    </div>
+
+    <button id="submitRegistrationBtn" class="submit-button">Register Student</button>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>
