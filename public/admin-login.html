@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AE-FUNAI Admin Login</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
+</head>
+<body class="center-body">
+<div class="container">
+    <header class="header">
+        <h1>AE-FUNAI Admin Login</h1>
+        <p class="subtitle">Access the administration panel.</p>
+    </header>
+
+    <form id="adminLoginForm">
+        <div class="fingerprint-area">
+            <p>Admin Thumbprint Scan</p>
+            <div id="adminFingerprintIcon" class="fingerprint-icon">&#128376;</div>
+            <p id="adminFingerprintStatus" class="status-message">Waiting for scanner input...</p>
+        </div>
+
+        <div class="fallback-login-fields">
+            <input type="text" id="adminUsername" placeholder="Username">
+            <input type="password" id="adminPassword" placeholder="Password">
+        </div>
+
+        <div id="adminCountdown" class="countdown-timer"></div>
+    </form>
+
+    <div class="signup-link">
+        Not an administrator? Go to <a href="/register">Student Registration</a>.
+    </div>
+</div>
+
+<script src="shared.js"></script>
+</body>
+</html>
