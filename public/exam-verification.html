@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AE-FUNAI Exam Verification</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="shared.css">
+</head>
+<body class="center-body">
+
+    <div class="container">
+        <header class="header">
+            <h1> AE-FUNAI <br>Exam Verification</h1>
+            <p class="subtitle">Please place your thumb on the scanner, to verify You're a Student.</p>
+        </header>
+
+        <div class="verification-prompt">
+            <!-- Fingerprint Icon with Dynamic Glow -->
+            <div class="fingerprint-icon" id="verificationIcon">
+                <i class="fas fa-fingerprint"></i> <!-- Using the fingerprint icon as requested -->
+            </div>
+            <div class="status-message" id="verificationStatusMessage">
+                Place your thumb on the scanner...
+            </div>
+        </div>
+
+        <!-- Mock button for testing purposes -->
+        <!-- In a real scenario, this button would be replaced by scanner hardware/API triggers -->
+        <br>
+        <button id="mockScanButton" class="btn btn-primary">Simulate Scan (For Testing)</button>
+    </div>
+
+    <script src="shared.js"></script>
+</body>
+</html>
