@@ -44,4 +44,15 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`AE-FUNAI backend running at http://localhost:${PORT}`);
+    if (!process.env.RP_ID || !process.env.ORIGIN) {
+        console.log('---------------------------------------------------------');
+        console.log('NOTE: RP_ID and ORIGIN environment variables are not set.');
+        console.log('WebAuthn (fingerprint) registration/login will NOT work');
+        console.log('correctly on a live deployment without these set to your');
+        console.log('real domain, e.g.:');
+        console.log('  RP_ID=ae-funai-backend.onrender.com');
+        console.log('  ORIGIN=https://ae-funai-backend.onrender.com');
+        console.log('Set these in your Render dashboard under Environment.');
+        console.log('---------------------------------------------------------');
+    }
 });
