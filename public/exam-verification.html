@@ -7,31 +7,34 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="shared.css">
+    <script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.umd.min.js"></script>
 </head>
 <body class="center-body">
 
     <div class="container">
         <header class="header">
             <h1> AE-FUNAI <br>Exam Verification</h1>
-            <p class="subtitle">Please place your thumb on the scanner, to verify You're a Student.</p>
+            <p class="subtitle">Enter your matric number, then verify with your own device's fingerprint sensor.</p>
         </header>
 
+        <div class="form-group" style="width: 70%; margin-bottom: 0;">
+            <label for="verifyMatricNo">Matric Number</label>
+            <input type="text" id="verifyMatricNo" placeholder="e.g., 2022/SC/1234567" required>
+        </div>
+
         <div class="verification-prompt">
-            <!-- Fingerprint Icon with Dynamic Glow -->
             <div class="fingerprint-icon" id="verificationIcon">
-                <i class="fas fa-fingerprint"></i> <!-- Using the fingerprint icon as requested -->
+                <i class="fas fa-fingerprint"></i>
             </div>
             <div class="status-message" id="verificationStatusMessage">
-                Place your thumb on the scanner...
+                Enter your matric number, then tap the button below.
             </div>
         </div>
 
-        <!-- Mock button for testing purposes -->
-        <!-- In a real scenario, this button would be replaced by scanner hardware/API triggers -->
         <br>
-        <button id="mockScanButton" class="btn btn-primary">Simulate Scan (For Testing)</button>
+        <button id="mockScanButton" class="btn btn-primary">Verify My Fingerprint</button>
     </div>
 
     <script src="shared.js"></script>
 </body>
-</html>
+    </html>
