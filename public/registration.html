@@ -6,12 +6,13 @@
 <title>AE-FUNAI Student Registration</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="shared.css">
+<script src="https://unpkg.com/@simplewebauthn/browser/dist/bundle/index.umd.min.js"></script>
 </head>
 <body class="center-body">
 <div class="container">
     <header class="header">
         <h1>AE-FUNAI Student Verification</h1>
-        <p class="subtitle">Secure your academic journey.</p>
+        <p class="subtitle">Secure your academic journey using your phone or laptop's fingerprint sensor.</p>
     </header>
 
     <form id="registrationForm" class="form-grid">
@@ -34,13 +35,13 @@
     </form>
 
     <div class="fingerprint-area">
-        <p>Thumbprint Capture</p>
-        <div id="fingerprintIcon" class="fingerprint-icon">&#128376;</div> <!-- Fingerprint icon emoji -->
-        <button id="scanFingerprintBtn">Scan Thumbprint</button>
-        <p id="fingerprintStatus">Ready to scan...</p>
+        <p>Thumbprint Registration</p>
+        <div id="fingerprintIcon" class="fingerprint-icon">&#128376;</div>
+        <button id="scanFingerprintBtn" disabled>Save Details First</button>
+        <p id="fingerprintStatus">Fill in your details and save them, then register your fingerprint.</p>
     </div>
 
-    <button id="submitRegistrationBtn" class="submit-button">Register Student</button>
+    <button id="submitRegistrationBtn" class="submit-button">Save Details</button>
 </div>
 
 <script src="shared.js"></script>
