@@ -36,10 +36,35 @@ CREATE TABLE IF NOT EXISTS students (
     full_name TEXT NOT NULL,
     email TEXT NOT NULL,
     department_code TEXT NOT NULL,
-    fingerprint_template TEXT,          -- SecuGen template (base64), NULL until enrolled
     fingerprint_registered INTEGER DEFAULT 0,  -- 0 = not enrolled, 1 = enrolled
+    webauthn_user_id TEXT,              -- random ID used to link this student to their WebAuthn credential
     created_at TEXT DEFAULT (datetime('now')),
     FOREIGN KEY (department_code) REFERENCES departments(code)
+);
+
+-- Each row is one registered fingerprint/device credential for a student.
+-- A student could technically have more than one (e.g. registers on both
+-- phone and laptop), so this is a separate table rather than a column.
+CREATE TABLE IF NOT EXISTS webauthn_credentials (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER NOT NULL,
+    credential_id TEXT UNIQUE NOT NULL,   -- base64url credential ID from the authenticator
+    public_key TEXT NOT NULL,             -- base64url public key, used to verify future logins
+    counter INTEGER DEFAULT 0,            -- replay-attack protection counter
+    device_type TEXT,
+    backed_up INTEGER DEFAULT 0,
+    created_at TEXT DEFAULT (datetime('now')),
+    FOREIGN KEY (student_id) REFERENCES students(id)
+);
+
+-- Temporary storage for in-progress WebAuthn registration/login challenges.
+-- Rows are short-lived: created when a challenge is issued, deleted once used.
+CREATE TABLE IF NOT EXISTS webauthn_challenges (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    student_id INTEGER,                   -- NULL during login lookup-by-matric flow
+    challenge TEXT NOT NULL,
+    purpose TEXT NOT NULL,                -- 'registration' | 'authentication'
+    created_at TEXT DEFAULT (datetime('now'))
 );
 
 CREATE TABLE IF NOT EXISTS exam_settings (
