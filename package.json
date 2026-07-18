@@ -1,7 +1,7 @@
 {
   "name": "ae-funai-backend",
-  "version": "1.0.0",
-  "description": "AE-FUNAI Exam & Student Verification System backend",
+  "version": "2.0.0",
+  "description": "AE-FUNAI Exam & Student Verification System backend (WebAuthn edition)",
   "main": "server.js",
   "type": "commonjs",
   "scripts": {
@@ -13,6 +13,7 @@
     "express-session": "^1.18.0",
     "better-sqlite3": "^11.3.0",
     "bcrypt": "^5.1.1",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "@simplewebauthn/server": "^10.0.1"
   }
 }
